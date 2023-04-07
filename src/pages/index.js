@@ -1,10 +1,13 @@
 import Head from "next/head";
-import GameDev from "./GameDev";
+import GameDevHero from "./GameDevHero";
 import ComputerScience from "./ComputerScience";
 import Interests from "./Interests";
 import ContactMe from "./ContactMe";
+import { useState } from "react";
 
 export default function Home() {
+  const [page, setPage] = useState("");
+  console.log(page);
   return (
     <div className="cover">
       <Head>
@@ -14,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="dflex alignVertical cover">
-        <GameDev />
+        <GameDevHero selectPage={setPage} />
         <ComputerScience />
       </div>
       <div className="dflex alignVertical cover">
