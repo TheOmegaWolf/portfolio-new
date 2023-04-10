@@ -4,6 +4,7 @@ import ComputerScience from "./ComputerScience";
 import Interests from "./Interests";
 import ContactMe from "./ContactMe";
 import { useState } from "react";
+import Base from "./Base";
 
 export default function Home() {
   const [page, setPage] = useState("");
@@ -17,15 +18,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="dflex alignVertical cover">
-        <GameDevHero selectPage={setPage} />
-        <ComputerScience />
+        <Base />
+        {/* <GameDevHero selectPage={setPage} />
+        <ComputerScience /> */}
       </div>
-      <div className="dflex alignVertical cover">
+      {/* <div className="dflex alignVertical cover">
         <Interests />
       </div>
       <div className="dflex alignVertical cover">
         <ContactMe />
-      </div>
+      </div> */}
     </div>
   );
 }
