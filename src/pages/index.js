@@ -1,9 +1,11 @@
 import Head from "next/head";
 import GameDevHero from "./GameDevHero";
-import ComputerScience from "./ComputerScience";
+import ComputerScienceHero from "./ComputerScienceHero";
 import Interests from "./Interests";
 import ContactMe from "./ContactMe";
 import { useState } from "react";
+import GameDev from "./GameDev";
+import ComputerScience from "./ComputerScience";
 
 export default function Home() {
   const [page, setPage] = useState("");
@@ -16,16 +18,30 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="dflex alignVertical cover">
-        <GameDevHero selectPage={setPage} />
-        <ComputerScience />
-      </div>
-      <div className="dflex alignVertical cover">
-        <Interests />
-      </div>
-      <div className="dflex alignVertical cover">
-        <ContactMe />
-      </div>
+      {page === "" ? (
+        <>
+          <div className="dflex alignVertical cover">
+            <GameDevHero selectPage={setPage} />
+            <ComputerScienceHero selectPage={setPage} />
+          </div>
+          <div className="dflex alignVertical cover">
+            <Interests />
+          </div>
+          <div className="dflex alignVertical cover">
+            <ContactMe />
+          </div>
+        </>
+      ) : (
+        <>
+          {page === "GameDev" ? (
+            <GameDev />
+          ) : page === "ComputerScience" ? (
+            <ComputerScience />
+          ) : (
+            <></>
+          )}
+        </>
+      )}
     </div>
   );
 }
