@@ -5,10 +5,16 @@ import Interests from "./Interests";
 import ContactMe from "./ContactMe";
 import { useState } from "react";
 import Base from "./Base";
-
+import { AnimatePresence, motion } from "framer-motion";
 export default function Home() {
   const [page, setPage] = useState("");
+  const [exitMotion, setExitMotion] = useState({});
   console.log(page);
+  if (page === "GameDev") {
+    setExitMotion({
+      scale: 0,
+    });
+  }
   return (
     <div className="cover">
       <Head>
@@ -18,9 +24,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="dflex alignVertical cover">
-        <Base />
-        {/* <GameDevHero selectPage={setPage} />
-        <ComputerScience /> */}
+        <AnimatePresence>
+          {page === "" ? (
+            <motion.div
+              key="base"
+              exit={exitMotion}
+              className={"cover"}
+              transition={{ type: "spring", duration: 0.8 }}
+            >
+              <Base setPage={setPage} />
+            </motion.div>
+          ) : (
+            <></>
+          )}
+          {page === "Gamedev" ? <GameDevHero /> : <></>}
+        </AnimatePresence>
       </div>
       {/* <div className="dflex alignVertical cover">
         <Interests />
