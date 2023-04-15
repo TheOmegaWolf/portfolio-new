@@ -15,17 +15,23 @@ export default function SnakeBodyTile(props) {
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );
-  return (
-    <>
-      <motion.div
-        className={style.snakeBodyTile}
-        initial={{
-          x: windowDimensions.width + props.offset.x,
-          y: windowDimensions.height + props.offset.y,
-        }}
-      >
-        {props.children}
-      </motion.div>
-    </>
-  );
+  if (
+    windowDimensions.width + props.offset.x &&
+    windowDimensions.height + props.offset.y
+  ) {
+    return (
+      <>
+        <motion.div
+          className={style.snakeBodyTile}
+          initial={{
+            x: windowDimensions.width + props.offset.x,
+            y: windowDimensions.height + props.offset.y,
+          }}
+        >
+          {props.children}
+        </motion.div>
+      </>
+    );
+  }
+  return <></>;
 }
