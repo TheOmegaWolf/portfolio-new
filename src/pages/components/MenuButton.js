@@ -7,7 +7,9 @@ export default function MenuButton(props) {
       <img src={arrow.src} className={style.arrow}></img>
       <button
         className={`${style.button} ${style.link}`}
-        onClick={() => props.setPage(props.type)}
+        onClick={() => {
+          props.setPage(props.type);
+        }}
       >
         <span className={style.linkText}>{props.text}</span>
       </button>

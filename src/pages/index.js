@@ -1,20 +1,27 @@
 import Head from "next/head";
-import GameDevHero from "./GameDevHero";
+// import GameDevHero from "./GameDevHero";
 import ComputerScience from "./ComputerScience";
 import Interests from "./Interests";
 import ContactMe from "./ContactMe";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Base from "./Base";
 import { AnimatePresence, motion } from "framer-motion";
+import GameDevSnake from "./GameDevSnake";
+import { useRouter } from "next/router";
 export default function Home() {
   const [page, setPage] = useState("");
   const [exitMotion, setExitMotion] = useState({});
+  const router = useRouter();
   console.log(page);
-  if (page === "GameDev") {
-    setExitMotion({
-      scale: 0,
-    });
-  }
+  useEffect(() => {
+    if (page === "gamedev") {
+      setExitMotion({
+        scale: 0,
+      });
+      router.push("/GameDevSnake");
+    }
+  }, [page]);
+
   return (
     <div className="cover">
       <Head>
@@ -25,19 +32,14 @@ export default function Home() {
       </Head>
       <div className="dflex alignVertical cover">
         <AnimatePresence>
-          {page === "" ? (
-            <motion.div
-              key="base"
-              exit={exitMotion}
-              className={"cover"}
-              transition={{ type: "spring", duration: 0.8 }}
-            >
-              <Base setPage={setPage} />
+          <motion.div key="base" exit={exitMotion} className={"cover"}>
+            <Base setPage={setPage} />
+          </motion.div>
+          {/* {page === "Gamedev" ? (
+            <motion.div key="gamedev" exit={exitMotion} className={"cover"}>
+              <GameDevSnake />
             </motion.div>
-          ) : (
-            <></>
-          )}
-          {page === "Gamedev" ? <GameDevHero /> : <></>}
+          ) : null} */}
         </AnimatePresence>
       </div>
       {/* <div className="dflex alignVertical cover">

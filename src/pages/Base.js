@@ -63,22 +63,22 @@ export default function Base(props) {
                   <MenuButton
                     text={"Games Projects eh?"}
                     setPage={props.setPage}
-                    type={"Gamedev"}
+                    type={"gamedev"}
                   />
                   <MenuButton
                     text={"Coding Projects eh?"}
                     setPage={props.setPage}
-                    type={"Programming"}
+                    type={"programming"}
                   />
                   <MenuButton
                     text={"Wait a minute, who areee you?"}
                     setPage={props.setPage}
-                    type={"AboutMe"}
+                    type={"aboutme"}
                   />
                   <MenuButton
                     text={"Let's get in touch!"}
                     setPage={props.setPage}
-                    type={"ContactMe"}
+                    type={"contactme"}
                   />
                 </div>
               </motion.div>

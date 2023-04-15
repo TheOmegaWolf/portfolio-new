@@ -1,0 +1,36 @@
+.snakeContainer {
+  background-color: #1a1a1a;
+  color: white;
+  position: relative;
+}
+.container {
+  height: 2000px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.snakeHead1 {
+  background-color: #fff;
+  height: 10vh;
+  width: 10vw;
+  position: absolute;
+}
+.snakeHead1::before {
+  width: 1vw;
+  height: 1vh;
+  background-color: red;
+  position: absolute;
+  top: 2vw;
+  left: 2vw;
+  content: "";
+}
+.snakeHead1::after {
+  width: 1vw;
+  height: 1vh;
+  background-color: red;
+  position: absolute;
+  top: 2vw;
+  right: 2vw;
+  content: "";
+}
