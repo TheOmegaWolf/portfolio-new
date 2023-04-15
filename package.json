@@ -20,5 +20,10 @@
     "react-router-dom": "^6.10.0",
     "react-simple-typewriter": "^5.0.1",
     "sass": "^1.61.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.35",
+    "typescript": "^5.0.4"
   }
 }
