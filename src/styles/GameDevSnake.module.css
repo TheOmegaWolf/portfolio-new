@@ -3,8 +3,12 @@
   color: white;
   position: relative;
 }
+.tongue {
+  height: 50px;
+  width: 60px;
+}
 .container {
-  height: 2000px;
+  height: 3200px;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -12,25 +16,8 @@
 }
 .snakeHead1 {
   background-color: #fff;
-  height: 10vh;
-  width: 10vw;
+  height: 60px;
+  width: 100px;
   position: absolute;
-}
-.snakeHead1::before {
-  width: 1vw;
-  height: 1vh;
-  background-color: red;
-  position: absolute;
-  top: 2vw;
-  left: 2vw;
-  content: "";
-}
-.snakeHead1::after {
-  width: 1vw;
-  height: 1vh;
-  background-color: red;
-  position: absolute;
-  top: 2vw;
-  right: 2vw;
-  content: "";
+  border-radius: 5px;
 }

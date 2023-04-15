@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
+import SnakeOne from "./components/SnakeOne";
 import styles from "../styles/GameDevSnake.module.css";
+import GameInfoBox from "./GameInfoBox";
 export default function GameDevSnake() {
   const { scrollY } = useScroll();
   const [initialHeight, setInitialHeight] = useState(0);
   const [initialWidth, setInitialWidth] = useState(0);
+  const [type, setType] = useState("intro");
   const [currentY, setCurrentY] = useState(0);
   useMotionValueEvent(scrollY, "change", (latest) => {
     setCurrentY(latest);
   });
-  const hasWindow = typeof window !== "undefined";
-  function getWindowDimensions() {
-    const width = hasWindow ? window.innerWidth : null;
-    const height = hasWindow ? window.innerHeight : null;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(
-    getWindowDimensions()
-  );
+  useEffect(() => {
+    if (currentY > 20 && type === "intro") {
+      setType("introDone");
+    }
+  }, [currentY]);
   return (
     <>
       <motion.div
@@ -30,18 +30,15 @@ export default function GameDevSnake() {
         animate={{ opacity: 1 }}
         className={`${styles.container}`}
       >
-        <div className={`cover ${styles.snakeContainer}`}>
+        <div className={`cover ${styles.snakeContainer} dflex`}>
           <motion.div
-            className={`${styles.snakeHead1}`}
-            initial={{
-              x: windowDimensions.width - 150,
-              y: windowDimensions.height,
-            }}
-            animate={{
-              x: windowDimensions.width - 150,
-              y: currentY,
-            }}
-          ></motion.div>
+            initial={{ y: 0 }}
+            animate={{ y: type === "intro" ? currentY : currentY + 125 }}
+            className="cover"
+          >
+            <GameInfoBox type={type} />
+          </motion.div>
+          <SnakeOne setType={setType} />
         </div>
       </motion.div>
     </>

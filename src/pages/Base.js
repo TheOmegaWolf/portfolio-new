@@ -3,11 +3,11 @@ import styles from "../styles/Base.module.css";
 // import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss";
 // import { AwesomeButton } from "react-awesome-button";
 // import Head from "next/head";
-import localFont from "@next/font/local";
 import { useState } from "react";
 import { useTypewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 import MenuButton from "./components/MenuButton";
+import localFont from "@next/font/local";
 const yosterFont = localFont({ src: "./fonts/yoster.ttf" });
 const prStartFont = localFont({ src: "./fonts/arcadeclassic.ttf" });
 const manaspcFont = localFont({ src: "./fonts/manaspc.ttf" });
@@ -31,7 +31,7 @@ export default function Base(props) {
   return (
     <>
       <motion.div
-        key="base"
+        key="basecomponent"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
