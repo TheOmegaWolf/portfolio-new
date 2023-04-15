@@ -1,5 +1,5 @@
-import "@/styles/globals.css";
-import "@/styles/flex.css";
+import "../styles/globals.css";
+import "../styles/flex.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 
