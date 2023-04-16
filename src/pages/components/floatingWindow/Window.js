@@ -78,6 +78,9 @@ const Window = (props) => {
     setTop((e.clientY || e.screenY) - yOffset);
     setWindowVisibility(1.0);
   };
+  const close = () => {
+    props.setShowWindow(false);
+  };
   const minimize = () => {
     var _a, _b;
     setWindowTransition(`${animationDuration}ms ease-in-out`);
@@ -279,8 +282,7 @@ const Window = (props) => {
                                   Object.assign(
                                     {
                                       className: `${styles.windowButton}`,
-                                      onClick:
-                                        properties.titleBar.buttons.close,
+                                      onClick: close,
                                     },
                                     { children: "\u2A2F" }
                                   )
@@ -300,7 +302,11 @@ const Window = (props) => {
                 className: `${styles.content}`,
                 draggable: "false",
                 style: Object.assign(
-                  { height: contentDisplay ? "auto" : 0, opacity: visibility },
+                  {
+                    height: contentDisplay ? "400px" : 0,
+                    opacity: visibility,
+                    overflow: "hidden",
+                  },
                   properties.style
                 ),
               },

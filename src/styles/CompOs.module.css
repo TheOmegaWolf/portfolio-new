@@ -1,0 +1,14 @@
+.navigator {
+  width: 500px;
+  height: 45px;
+  border-radius: 5px;
+  background-color: rgba(0, 18, 41, 0.8);
+}
+.icon {
+  height: 40px;
+  width: 40px;
+  font-size: 28px;
+  cursor: pointer;
+  opacity: 0.8;
+  margin: 0px 5px;
+}
