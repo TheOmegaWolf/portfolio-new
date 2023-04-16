@@ -10,15 +10,14 @@ import GameDevSnake from "./GameDevSnake";
 import { useRouter } from "next/router";
 export default function Home() {
   const [page, setPage] = useState("");
-  const [exitMotion, setExitMotion] = useState({});
   const router = useRouter();
   console.log(page);
   useEffect(() => {
     if (page === "gamedev") {
-      setExitMotion({
-        scale: 0,
-      });
       router.push("/GameDevSnake");
+    }
+    if (page === "programming") {
+      router.push("/ComputerScience");
     }
   }, [page]);
 
@@ -32,22 +31,11 @@ export default function Home() {
       </Head>
       <div className="dflex alignVertical cover">
         <AnimatePresence>
-          <motion.div key="base" exit={exitMotion} className={"cover"}>
+          <motion.div key="base" className={"cover"}>
             <Base setPage={setPage} />
           </motion.div>
-          {/* {page === "Gamedev" ? (
-            <motion.div key="gamedev" exit={exitMotion} className={"cover"}>
-              <GameDevSnake />
-            </motion.div>
-          ) : null} */}
         </AnimatePresence>
       </div>
-      {/* <div className="dflex alignVertical cover">
-        <Interests />
-      </div>
-      <div className="dflex alignVertical cover">
-        <ContactMe />
-      </div> */}
     </div>
   );
 }

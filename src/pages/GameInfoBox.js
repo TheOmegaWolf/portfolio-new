@@ -2,14 +2,100 @@ import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/components/GameInfoBox.module.css";
 import localFont from "@next/font/local";
+import Carousel from "react-bootstrap/Carousel";
+import "bootstrap/dist/css/bootstrap.css";
 const yosterFont = localFont({ src: "./fonts/yoster.ttf" });
 const prStartFont = localFont({ src: "./fonts/arcadeclassic.ttf" });
 const ka1Font = localFont({ src: "./fonts/ka1.ttf" });
 const manaspcFont = localFont({ src: "./fonts/manaspc.ttf" });
 const priceDownFont = localFont({ src: "./fonts/pricedown bl.otf" });
+
+import polaroidCam from "../assets/Camera.png";
+import paper from "../assets/paper.png";
+// babystep
+import alice from "../assets/gameDevImages/babysteps/AliceImage.jpg";
+import aliceLogo from "../assets/gameDevImages/babysteps/AliceLogo.png";
+import anim8orShark from "../assets/gameDevImages/babysteps/Anim8orShark.png";
+import anim8orLogo from "../assets/gameDevImages/babysteps/Anim8orLogo.png";
+
+// firstyear
+import vuforiaSamurai from "../assets/gameDevImages/firstyear/Vuforia_Samurai.mp4";
+
+// secondyear
+import ThreeDPlatformer from "../assets/gameDevImages/secondyear/3d platformer.png";
+import ThreeDShooter from "../assets/gameDevImages/secondyear/3d shooter.png";
+import businessCard from "../assets/gameDevImages/secondyear/business card.png";
+import ticTacToe from "../assets/gameDevImages/secondyear/tic tac toe.png";
+
+import arBall from "../assets/gameDevImages/secondyear/AR Ball.mp4";
+import arPortal from "../assets/gameDevImages/secondyear/AR Portal.mp4";
+
+// thirdyear
+import darxo1 from "../assets/gameDevImages/thirdyear/darxo_gameplay1.png";
+import darxo2 from "../assets/gameDevImages/thirdyear/intro.png";
+import darxo3 from "../assets/gameDevImages/thirdyear/darxo_gameplay2.png";
+import darxo4 from "../assets/gameDevImages/thirdyear/darxo_gameplay3.png";
+
+//images cache
+const imagesCache = {
+  babysteps: [
+    { img: aliceLogo, height: "350px", width: "200px", padding: "0 100px" },
+    { img: alice, height: "350px", width: "200px", padding: "0 100px" },
+    { img: anim8orLogo, height: "350px", width: "200px", padding: "0 100px" },
+    { img: anim8orShark, height: "350px", width: "200px", padding: "0 100px" },
+  ],
+  secondyear: [
+    {
+      img: ThreeDPlatformer,
+      height: "350px",
+      width: "200px",
+      padding: "0 100px",
+    },
+    {
+      img: ThreeDShooter,
+      height: "350px",
+      width: "200px",
+      padding: "0 100px",
+    },
+    {
+      img: businessCard,
+      height: "350px",
+      width: "200px",
+      padding: "0 100px",
+    },
+    {
+      img: ticTacToe,
+      height: "350px",
+      width: "200px",
+      padding: "0 100px",
+    },
+  ],
+  thirdyear: [
+    { img: darxo1, height: "350px", width: "50px", padding: "0 320px" },
+    { img: darxo2, height: "350px", width: "200px", padding: "0 320px" },
+    { img: darxo3, height: "350px", width: "200px", padding: "0 320px" },
+    { img: darxo4, height: "350px", width: "200px", padding: "0 320px" },
+  ],
+};
+const videosCache = {
+  firstyear: [{ vid: vuforiaSamurai, height: "350px", padding: "0 100px" }],
+  secondyear: [
+    { vid: arBall, height: "350px", padding: "0 100px" },
+    { vid: arPortal, height: "350px", padding: "0 100px" },
+  ],
+};
 export default function GameInfoBox(props) {
   const [content, setContent] = useState([{}]);
+  const [chosenState, setChosenState] = useState("text");
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   useEffect(() => {
+    setChosenState("text");
     if (props.type === "babysteps") {
       setContent([
         {
@@ -240,81 +326,31 @@ export default function GameInfoBox(props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className={`${styles.infoContainer} ${prStartFont.className} dflex alignBoth flexcolumn`}
+          className={`${styles.infoContainer} ${prStartFont.className} dflex alignVertical`}
         >
-          <AnimatePresence>
-            {content.map((text, index) => (
-              <motion.div
-                style={{
-                  fontSize: text.size ? text.size : "inherit",
-                  color: text.color ? text.color : "inherit",
-                  marginTop: "5px",
-                }}
-                initial={{
-                  y: -20,
-                  opacity: 0,
-                }}
-                animate={{
-                  y: 0,
-                  opacity: 1,
-                }}
-                transition={{
-                  delay: index * 2,
-                }}
-              >
-                {text.text}
-              </motion.div>
-            ))}
-            {props.type === "thirdyear" ? (
-              <AnimatePresence>
-                <motion.a
-                  href="https://play.google.com/store/apps/details?id=com.TheOmegaWolfCorp.Darxo"
-                  target="_blank"
-                  style={{
-                    fontSize: "20px",
-                    color: "blue",
-                    marginTop: "5px",
-                  }}
-                  initial={{
-                    y: -20,
-                    opacity: 0,
-                  }}
-                  animate={{
-                    y: 0,
-                    opacity: 1,
-                  }}
-                  transition={{
-                    delay: content.length * 2,
-                  }}
-                >
-                  Click to see Darxo!
-                </motion.a>
-
-                <motion.div
-                  style={{
-                    fontSize: "20px",
-                    color: "black",
-                    marginTop: "5px",
-                  }}
-                  initial={{
-                    y: -20,
-                    opacity: 0,
-                  }}
-                  animate={{
-                    y: 0,
-                    opacity: 1,
-                  }}
-                  transition={{
-                    delay: content.length * 2,
-                  }}
-                >
-                  {`( Game Developer `}
-                  <motion.a
-                    href="https://www.instagram.com/the._.omegawolf/"
-                    target="_blank"
+          {chosenState === "images" ? (
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className={`${styles.navigateIcon}`}
+              src={paper.src}
+              onClick={() => setChosenState("text")}
+            ></motion.img>
+          ) : null}
+          {chosenState === "text" ? (
+            <motion.div
+              className="cover dflex alignBoth flexcolumn"
+              key={`${props.type}_text`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <AnimatePresence mode="wait">
+                {content.map((text, index) => (
+                  <motion.div
                     style={{
-                      fontSize: "20px",
-                      color: "red",
+                      fontSize: text.size ? text.size : "inherit",
+                      color: text.color ? text.color : "inherit",
+                      marginTop: "5px",
                     }}
                     initial={{
                       y: -20,
@@ -325,18 +361,152 @@ export default function GameInfoBox(props) {
                       opacity: 1,
                     }}
                     transition={{
-                      delay: content.length * 2,
+                      delay: index * 2,
                     }}
                   >
-                    @the._.omegawolf
-                  </motion.a>
-                  {`  is born )`}
-                </motion.div>
+                    {text.text}
+                  </motion.div>
+                ))}
+                {props.type === "thirdyear" ? (
+                  <AnimatePresence>
+                    <motion.a
+                      href="https://play.google.com/store/apps/details?id=com.TheOmegaWolfCorp.Darxo"
+                      target="_blank"
+                      style={{
+                        fontSize: "20px",
+                        color: "blue",
+                        marginTop: "5px",
+                      }}
+                      initial={{
+                        y: -20,
+                        opacity: 0,
+                      }}
+                      animate={{
+                        y: 0,
+                        opacity: 1,
+                      }}
+                      transition={{
+                        delay: content.length * 2,
+                      }}
+                    >
+                      Click to see Darxo!
+                    </motion.a>
+
+                    <motion.div
+                      style={{
+                        fontSize: "20px",
+                        color: "black",
+                        marginTop: "5px",
+                      }}
+                      initial={{
+                        y: -20,
+                        opacity: 0,
+                      }}
+                      animate={{
+                        y: 0,
+                        opacity: 1,
+                      }}
+                      transition={{
+                        delay: content.length * 2,
+                      }}
+                    >
+                      {`( Game Developer `}
+                      <motion.a
+                        href="https://www.instagram.com/the._.omegawolf/"
+                        target="_blank"
+                        style={{
+                          fontSize: "20px",
+                          color: "red",
+                        }}
+                        initial={{
+                          y: -20,
+                          opacity: 0,
+                        }}
+                        animate={{
+                          y: 0,
+                          opacity: 1,
+                        }}
+                        transition={{
+                          delay: content.length * 2,
+                        }}
+                      >
+                        @the._.omegawolf
+                      </motion.a>
+                      {`  is born )`}
+                    </motion.div>
+                  </AnimatePresence>
+                ) : (
+                  <></>
+                )}
               </AnimatePresence>
-            ) : (
-              <></>
-            )}
-          </AnimatePresence>
+            </motion.div>
+          ) : null}
+          {chosenState === "images" ? (
+            <motion.div
+              className="cover"
+              key={`${props.type}_images`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <AnimatePresence mode="wait">
+                {imagesCache[props.type] || videosCache[props.type] ? (
+                  <motion.div
+                    key={"carousel"}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="cover dflex alignBoth"
+                  >
+                    <Carousel
+                      className="cover "
+                      variant="dark"
+                      style={{ padding: "0 50px" }}
+                    >
+                      {imagesCache[props.type]
+                        ? imagesCache[props.type].map((image) => (
+                            <Carousel.Item>
+                              <motion.img
+                                src={image.img.src}
+                                className="d-block w-100"
+                                style={{
+                                  height: image.height,
+                                  padding: image.padding,
+                                }}
+                              />
+                            </Carousel.Item>
+                          ))
+                        : null}
+                      {videosCache[props.type]
+                        ? videosCache[props.type].map((video) => (
+                            <Carousel.Item>
+                              <motion.video
+                                width={"100%"}
+                                height={video.height}
+                                controls
+                              >
+                                <source src={video.vid} type="video/mp4" />
+                              </motion.video>
+                            </Carousel.Item>
+                          ))
+                        : null}
+                    </Carousel>
+                  </motion.div>
+                ) : (
+                  <></>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ) : null}
+          {(imagesCache[props.type] || videosCache[props.type]) &&
+          chosenState === "text" ? (
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className={`${styles.navigateIcon}`}
+              src={polaroidCam.src}
+              onClick={() => setChosenState("images")}
+            ></motion.img>
+          ) : null}
         </motion.div>
       </AnimatePresence>
     );

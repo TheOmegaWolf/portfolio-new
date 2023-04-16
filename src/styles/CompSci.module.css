@@ -1,4 +1,5 @@
 .compsciContainer {
-  background-color: blue;
+  background: url("../assets/wallpaper.gif");
   height: 100%;
+  background-size: cover;
 }

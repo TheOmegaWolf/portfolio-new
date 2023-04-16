@@ -24,23 +24,26 @@ export default function GameDevSnake() {
   }, [currentY]);
   return (
     <>
-      <motion.div
-        key="gamedevsnake"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className={`${styles.container}`}
-      >
-        <div className={`cover ${styles.snakeContainer} dflex`}>
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: type === "intro" ? currentY : currentY + 125 }}
-            className="cover"
-          >
-            <GameInfoBox type={type} />
-          </motion.div>
-          <SnakeOne setType={setType} />
-        </div>
-      </motion.div>
+      <AnimatePresence>
+        <motion.div
+          key="gamedevsnake"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className={`${styles.container}`}
+        >
+          <div className={`cover ${styles.snakeContainer} dflex`}>
+            <motion.div
+              initial={{ y: 0 }}
+              animate={{ y: type === "intro" ? currentY : currentY + 125 }}
+              className="cover"
+            >
+              <GameInfoBox type={type} />
+            </motion.div>
+            <SnakeOne setType={setType} />
+          </div>
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 }

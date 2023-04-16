@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import styles from "../../styles/GameDevSnake.module.css";
 import tongue from "../../../public/aseprite/spritesheet-tongue.gif";
 import SnakeBodyTile from "./SnakeBodyTile";
+import { useRouter } from "next/router";
 export default function SnakeOne(props) {
+  const router = useRouter();
   const hasWindow = typeof window !== "undefined";
   function getWindowDimensions() {
     const width = hasWindow ? window.innerWidth : null;
@@ -224,6 +226,16 @@ export default function SnakeOne(props) {
           onClick={() => props.setType("reset")}
         >
           🔁
+        </motion.span>
+      </SnakeBodyTile>
+      <SnakeBodyTile offset={{ x: -150, y: 2360 }}>
+        <motion.span
+          whileHover={{ scale: 1.5 }}
+          className="dflex alignBoth"
+          style={{ height: "100%" }}
+          onClick={() => router.push("./")}
+        >
+          🏠
         </motion.span>
       </SnakeBodyTile>
     </>
