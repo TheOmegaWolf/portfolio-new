@@ -16,6 +16,7 @@ div.window_container > div.title_bar {
   cursor: default;
   position: static;
   padding: 2px 5px;
+  cursor: pointer;
 }
 
 div.window_container > div.title_bar > span.icon {
@@ -44,25 +45,30 @@ div.window_container > div.title_bar > span.windowTitle:active {
 div.window_container > div.title_bar > span.buttonContainer {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 div.window_container
   > div.title_bar
   > span.buttonContainer
   > span.windowButton {
-  height: var(--tilebar-height);
+  height: calc(var(--tilebar-height) - 7px);
   width: var(--tilebar-height);
   font-size: calc(var(--tilebar-height) - 8px);
   cursor: default;
-  color: black;
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: 200ms ease-in-out;
+  cursor: pointer;
 }
 
 div.window_container
   > div.title_bar
   > span.buttonContainer
   > span.windowButton:hover {
-  color: white;
+  color: rgb(148, 148, 148);
 }
 
 div.window_container > div.content {
