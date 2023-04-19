@@ -8,7 +8,6 @@ const manaspcFont = localFont({ src: "./fonts/manaspc.ttf" });
 const priceDownFont = localFont({ src: "./fonts/pricedown bl.otf" });
 import Window from "../pages/components/floatingWindow/Window";
 import CompOsApplications from "./components/CompOsApplications";
-import WindowCustom from "./components/floatingWindow/WindowCustom";
 export default function ComputerScience() {
   const [showWindow, setShowWindow] = useState(false);
   const iconVariables = {
@@ -27,7 +26,6 @@ export default function ComputerScience() {
           exit={{ opacity: 0 }}
           className={`${styles.compsciContainer} flexgrow overHdn`}
         >
-          <WindowCustom />
           {showWindow ? (
             <AnimatePresence>
               <motion.div
