@@ -45,7 +45,7 @@ export default function ComputerScience() {
                   }}
                   setShowWindow={setShowWindow}
                 >
-                  <div className="cover">FireOS</div>
+                  <div style={{ backgroundColor: "#1a1a1a08" }}>hi</div>
                 </Window>
               </motion.div>
             </AnimatePresence>

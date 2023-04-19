@@ -73,6 +73,6 @@ div.window_container
 
 div.window_container > div.content {
   all: initial;
-  background-color: white;
+  background-color: rgba(27, 27, 27, 0.609);
   overflow: scroll;
 }

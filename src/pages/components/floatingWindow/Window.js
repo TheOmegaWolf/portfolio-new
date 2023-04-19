@@ -64,7 +64,7 @@ const Window = (props) => {
   const effectiveHeight = useRef(height);
   const effectiveWidth = useRef(width);
   const animationDuration = 500;
-  const windowSize = useWindowSize();
+  const [windowWidth, windowHeight] = useWindowSize();
   const handleDragStart = (e) => {
     setYOffset(e.clientY - top);
     setXOffset(e.clientX - left);
@@ -84,7 +84,8 @@ const Window = (props) => {
     props.setShowWindow(false);
   };
   const minimize = () => {
-    if (windowSize.height && windowSize.width) {
+    console.log(windowWidth, windowHeight);
+    if (windowWidth && windowHeight) {
       var _a, _b;
       setWindowTransition(`${animationDuration}ms ease-in-out`);
       const parent =
@@ -117,13 +118,13 @@ const Window = (props) => {
         let topPosition =
           ((parent === null || parent === void 0
             ? void 0
-            : parent.clientHeight) || windowSize.height) -
+            : parent.clientHeight) || windowHeight) -
           effectiveHeight.current -
           4;
         let leftPosition =
           ((parent === null || parent === void 0
             ? void 0
-            : parent.clientWidth) || windowSize.width) -
+            : parent.clientWidth) || windowWidth) -
           effectiveWidth.current -
           4;
         const minimizedWindow = document.elementFromPoint(
@@ -154,7 +155,7 @@ const Window = (props) => {
     }
   };
   const maximize = () => {
-    if (windowSize.height && windowSize.width) {
+    if (windowWidth && windowHeight) {
       var _a;
       setWindowTransition(`${animationDuration}ms ease-in-out`);
       const parent =
@@ -182,11 +183,11 @@ const Window = (props) => {
         effectiveHeight.current =
           (parent === null || parent === void 0
             ? void 0
-            : parent.clientHeight) || windowSize.height;
+            : parent.clientHeight) || windowHeight;
         effectiveWidth.current =
           (parent === null || parent === void 0
             ? void 0
-            : parent.clientWidth) || windowSize.width;
+            : parent.clientWidth) || windowWidth;
         setTop(
           (parent === null || parent === void 0 ? void 0 : parent.offsetTop) ||
             0
