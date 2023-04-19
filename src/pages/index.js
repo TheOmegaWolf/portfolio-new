@@ -11,7 +11,6 @@ import { useRouter } from "next/router";
 export default function Home() {
   const [page, setPage] = useState("");
   const router = useRouter();
-  console.log(page);
   useEffect(() => {
     if (page === "gamedev") {
       router.push("/GameDevSnake");

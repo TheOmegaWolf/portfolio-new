@@ -1,6 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import React, { useRef } from "react";
 import styles from "./Window.module.css";
+import useWindowSize from "../WindowSize";
 const nextZIndex = () => {
   let maxZ = 0;
   if (!(typeof window === "undefined")) {
@@ -63,6 +64,7 @@ const Window = (props) => {
   const effectiveHeight = useRef(height);
   const effectiveWidth = useRef(width);
   const animationDuration = 500;
+  const windowSize = useWindowSize();
   const handleDragStart = (e) => {
     setYOffset(e.clientY - top);
     setXOffset(e.clientX - left);
@@ -82,111 +84,125 @@ const Window = (props) => {
     props.setShowWindow(false);
   };
   const minimize = () => {
-    var _a, _b;
-    setWindowTransition(`${animationDuration}ms ease-in-out`);
-    const parent =
-      (_a = document.getElementById(properties.id)) === null || _a === void 0
-        ? void 0
-        : _a.parentElement;
-    if (minimized) {
-      setContentDisplay(true);
-      effectiveHeight.current = height;
-      setTop(
-        (parent === null || parent === void 0 ? void 0 : parent.offsetTop) || 0
-      );
-      setLeft(
-        (parent === null || parent === void 0 ? void 0 : parent.offsetLeft) || 0
-      );
-      setMinimized(false);
-      setMinimizeIcon("-");
-      setMaximized(false);
-    } else {
-      setContentDisplay(false);
-      effectiveHeight.current = 32;
+    if (windowSize.height && windowSize.width) {
+      var _a, _b;
+      setWindowTransition(`${animationDuration}ms ease-in-out`);
       const parent =
-        (_b = document.getElementById(properties.id)) === null || _b === void 0
+        (_a = document.getElementById(properties.id)) === null || _a === void 0
           ? void 0
-          : _b.parentElement;
-      effectiveWidth.current = width;
-      let topPosition =
-        ((parent === null || parent === void 0
-          ? void 0
-          : parent.clientHeight) || window.innerHeight) -
-        effectiveHeight.current -
-        4;
-      let leftPosition =
-        ((parent === null || parent === void 0 ? void 0 : parent.clientWidth) ||
-          window.innerWidth) -
-        effectiveWidth.current -
-        4;
-      const minimizedWindow = document.elementFromPoint(
-        leftPosition + effectiveWidth.current / 2,
-        topPosition + effectiveHeight.current / 2
-      );
-      if (
-        minimizedWindow &&
-        ["window-container", "windowTitle"].includes(
-          (minimizedWindow === null || minimizedWindow === void 0
+          : _a.parentElement;
+      if (minimized) {
+        setContentDisplay(true);
+        effectiveHeight.current = height;
+        setTop(
+          (parent === null || parent === void 0 ? void 0 : parent.offsetTop) ||
+            0
+        );
+        setLeft(
+          (parent === null || parent === void 0 ? void 0 : parent.offsetLeft) ||
+            0
+        );
+        setMinimized(false);
+        setMinimizeIcon("-");
+        setMaximized(false);
+      } else {
+        setContentDisplay(false);
+        effectiveHeight.current = 32;
+        const parent =
+          (_b = document.getElementById(properties.id)) === null ||
+          _b === void 0
             ? void 0
-            : minimizedWindow.className) || ""
-        )
-      ) {
-        topPosition -=
-          (minimizedWindow === null || minimizedWindow === void 0
+            : _b.parentElement;
+        effectiveWidth.current = width;
+        let topPosition =
+          ((parent === null || parent === void 0
             ? void 0
-            : minimizedWindow.clientHeight) + 4;
+            : parent.clientHeight) || windowSize.height) -
+          effectiveHeight.current -
+          4;
+        let leftPosition =
+          ((parent === null || parent === void 0
+            ? void 0
+            : parent.clientWidth) || windowSize.width) -
+          effectiveWidth.current -
+          4;
+        const minimizedWindow = document.elementFromPoint(
+          leftPosition + effectiveWidth.current / 2,
+          topPosition + effectiveHeight.current / 2
+        );
+        if (
+          minimizedWindow &&
+          ["window-container", "windowTitle"].includes(
+            (minimizedWindow === null || minimizedWindow === void 0
+              ? void 0
+              : minimizedWindow.className) || ""
+          )
+        ) {
+          topPosition -=
+            (minimizedWindow === null || minimizedWindow === void 0
+              ? void 0
+              : minimizedWindow.clientHeight) + 4;
+        }
+        setTop(topPosition);
+        setLeft(leftPosition);
+        setMinimized(true);
+        setMinimizeIcon("◰");
+        setMaximized(false);
       }
-      setTop(topPosition);
-      setLeft(leftPosition);
-      setMinimized(true);
-      setMinimizeIcon("◰");
-      setMaximized(false);
+      setLevel(nextZIndex());
+      setTimeout(setWindowTransition, animationDuration + 1, "");
     }
-    setLevel(nextZIndex());
-    setTimeout(setWindowTransition, animationDuration + 1, "");
   };
   const maximize = () => {
-    var _a;
-    setWindowTransition(`${animationDuration}ms ease-in-out`);
-    const parent =
-      (_a = document.getElementById(properties.id)) === null || _a === void 0
-        ? void 0
-        : _a.parentElement;
-    if (maximized) {
-      setContentDisplay(true);
-      effectiveHeight.current = height;
-      effectiveWidth.current = width;
-      setTop(
-        (parent === null || parent === void 0 ? void 0 : parent.offsetTop) || 0
-      );
-      setLeft(
-        (parent === null || parent === void 0 ? void 0 : parent.offsetLeft) || 0
-      );
-      setMaximized(false);
-      setMaximizeIcon("□");
-      setMinimized(false);
-      setMinimizeIcon("-");
-    } else {
-      setContentDisplay(true);
-      effectiveHeight.current =
-        (parent === null || parent === void 0 ? void 0 : parent.clientHeight) ||
-        window.innerHeight;
-      effectiveWidth.current =
-        (parent === null || parent === void 0 ? void 0 : parent.clientWidth) ||
-        window.innerWidth;
-      setTop(
-        (parent === null || parent === void 0 ? void 0 : parent.offsetTop) || 0
-      );
-      setLeft(
-        (parent === null || parent === void 0 ? void 0 : parent.offsetLeft) || 0
-      );
-      setMaximized(true);
-      setMaximizeIcon("❐");
-      setMinimized(false);
-      setMinimizeIcon("-");
+    if (windowSize.height && windowSize.width) {
+      var _a;
+      setWindowTransition(`${animationDuration}ms ease-in-out`);
+      const parent =
+        (_a = document.getElementById(properties.id)) === null || _a === void 0
+          ? void 0
+          : _a.parentElement;
+      if (maximized) {
+        setContentDisplay(true);
+        effectiveHeight.current = height;
+        effectiveWidth.current = width;
+        setTop(
+          (parent === null || parent === void 0 ? void 0 : parent.offsetTop) ||
+            0
+        );
+        setLeft(
+          (parent === null || parent === void 0 ? void 0 : parent.offsetLeft) ||
+            0
+        );
+        setMaximized(false);
+        setMaximizeIcon("□");
+        setMinimized(false);
+        setMinimizeIcon("-");
+      } else {
+        setContentDisplay(true);
+        effectiveHeight.current =
+          (parent === null || parent === void 0
+            ? void 0
+            : parent.clientHeight) || windowSize.height;
+        effectiveWidth.current =
+          (parent === null || parent === void 0
+            ? void 0
+            : parent.clientWidth) || windowSize.width;
+        setTop(
+          (parent === null || parent === void 0 ? void 0 : parent.offsetTop) ||
+            0
+        );
+        setLeft(
+          (parent === null || parent === void 0 ? void 0 : parent.offsetLeft) ||
+            0
+        );
+        setMaximized(true);
+        setMaximizeIcon("❐");
+        setMinimized(false);
+        setMinimizeIcon("-");
+      }
+      setLevel(nextZIndex());
+      setTimeout(setWindowTransition, animationDuration + 1, "");
     }
-    setLevel(nextZIndex());
-    setTimeout(setWindowTransition, animationDuration + 1, "");
   };
   return _jsxs(
     "div",

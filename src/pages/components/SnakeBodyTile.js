@@ -3,15 +3,15 @@ import style from "../../styles/components/SnakeBodyTile.module.css";
 import useWindowSize from "../components/WindowSize";
 import { motion } from "framer-motion";
 export default function SnakeBodyTile(props) {
-  const size = useWindowSize();
-  if (size.width && size.height) {
+  const [windowWidth, windowHeight] = useWindowSize();
+  if (windowWidth && windowHeight) {
     return (
       <>
         <motion.div
           className={style.snakeBodyTile}
           initial={{
-            x: size.width + props.offset.x,
-            y: size.height + props.offset.y,
+            x: windowWidth + props.offset.x,
+            y: windowHeight + props.offset.y,
           }}
         >
           {props.children}

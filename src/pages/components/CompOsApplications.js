@@ -5,13 +5,13 @@ import styles from "../../styles/CompOs.module.css";
 import towLogo from "../../assets/OmegaFinal.png";
 export default function CompOsApplications(props) {
   const { iconVariables } = props;
-  const size = useWindowSize();
-  if (size.width && size.height) {
+  const [windowWidth, windowHeight] = useWindowSize();
+  if (windowWidth && windowHeight) {
     return (
       <AnimatePresence mode="wait">
         <motion.div
-          initial={{ margin: "0 auto", y: size.height + 50 }}
-          animate={{ margin: "0 auto", y: size.height - 60 }}
+          initial={{ margin: "0 auto", y: windowHeight + 50 }}
+          animate={{ margin: "0 auto", y: windowHeight - 60 }}
           transition={{ duration: 1 }}
           className={`${styles.navigator} dflex alignBoth`}
         >
