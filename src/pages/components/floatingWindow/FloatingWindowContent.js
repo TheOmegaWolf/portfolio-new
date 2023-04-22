@@ -15,32 +15,41 @@ export default function FloatingWindowContent(props) {
       <Carousel
         className={`dflex ${styles.mainContainer} ${manaspcFont.className}`}
       >
-        <Carousel.Item key={`${props.content[0].text.split(" ")[0]}_text`}>
+        <Carousel.Item >
           <div
             className={`dflex flexcolumn alignHorizontal `}
             style={{ padding: props.padding }}
           >
-            {props.content && props.content.map((element, index) => (
-              <div
-                key={`${element.text.split(" ")[0]}_${index}`}
-                className={`${styles.textContent}`}
-                style={{ color: element.color }}
-              >
-                {element.text}
-              </div>
-            ))}
+            {props.content
+              ? props.content.map((element, index) => (
+                  <div
+                    key={`${element.text.split(" ")[0]}_${index}`}
+                    className={`${styles.textContent}`}
+                    style={{ color: element.color }}
+                  >
+                    {element.text}
+                  </div>
+                ))
+              : null}
             <a href={props.link} target="blank" className={`${styles.link}`}>
               {props.link}
             </a>
           </div>
         </Carousel.Item>
-        <Carousel.Item key={`${props.content[0].text.split(" ")[0]}_images`}>
+        <Carousel.Item >
           <div className={`dflex flexcolumn alignHorizontal `}>
-            { props.images && props.images.map((image) => (
-              <>
-                <img src={image.src} width={500} height={340} key={image.src} />
-              </>
-            ))}
+            {props.images
+              ? props.images.map((image) => (
+                  <>
+                    <img
+                      src={image.src}
+                      width={500}
+                      height={340}
+                      key={image.src}
+                    />
+                  </>
+                ))
+              : null}
           </div>
         </Carousel.Item>
       </Carousel>

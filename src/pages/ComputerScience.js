@@ -52,13 +52,47 @@ const content = {
     padding: "40px 70px",
     images: [fireos]
   },
+  geolocationFinder: {
+    titleBar: {
+      icon: "🔎",
+      title: "Geolocation Finder",
+      buttons: { minimize: true, close: true },
+    },
+    text: [
+      {
+        text: "Python/Android/HTML Based project",
+        color: "#80A1F2",
+        fontSize: "14px",
+      },
+      {
+        text: "that allows a user to get his coordinates, ",
+        color: "#fff",
+        fontSize: "12px",
+      },
+      {
+        text: "post it in an HTML site and allows his",
+        color: "#fff",
+        fontSize: "12px",
+      },
+      {
+        text: "distance to be precisely located by Values given by a python code",
+        color: "#C5EBFE",
+        fontSize: "14px",
+      },
+    ],
+    width: 500,
+    height: 375,
+    padding: "40px 70px",
+    images: [geolocationFinder]
+  },
 };
 export default function ComputerScience() {
   const [showWindow, setShowWindow] = useState(false);
   const iconVariables = {
-    fireOsWindow: {
+    fireos: {
       show: showWindow,
       setShowWindow: setShowWindow,
+      logo: content.fireos.titleBar.icon
     },
   };
   return (

@@ -23,7 +23,7 @@ export default function CompOsApplications(props) {
               )
             }
           >
-            🔥
+            {props.iconVariables.fireos.logo}
           </motion.span>
           <motion.span className={`${styles.icon}`}>🔥</motion.span>
           <motion.span className={`${styles.icon}`}>🔥</motion.span>
