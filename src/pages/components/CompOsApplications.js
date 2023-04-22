@@ -18,8 +18,8 @@ export default function CompOsApplications(props) {
           <motion.span
             className={`${styles.icon}`}
             onClick={() =>
-              iconVariables.fireOsWindow.setShowWindow(
-                !iconVariables.fireOsWindow.show
+              iconVariables.fireos.setShowWindow(
+                !iconVariables.fireos.show
               )
             }
           >
