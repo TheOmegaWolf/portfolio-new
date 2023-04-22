@@ -320,7 +320,7 @@ const Window = (props) => {
                 draggable: "false",
                 style: Object.assign(
                   {
-                    height: contentDisplay ? "400px" : 0,
+                    height: "100%",
                     opacity: visibility,
                     overflow: "hidden",
                   },

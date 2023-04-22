@@ -8,6 +8,51 @@ const manaspcFont = localFont({ src: "./fonts/manaspc.ttf" });
 const priceDownFont = localFont({ src: "./fonts/pricedown bl.otf" });
 import Window from "../pages/components/floatingWindow/Window";
 import CompOsApplications from "./components/CompOsApplications";
+import FloatingWindowContent from "./components/floatingWindow/FloatingWindowContent";
+
+// images 
+import fireos from "../assets/CompSciStuff/fireos.png";
+import geolocationFinder from "../assets/CompSciStuff/geolocationFinder.png";
+import musicPlayer from "../assets/CompSciStuff/music player.png";
+import housePrediction from "../assets/CompSciStuff/bangalore house prediction.png";
+import wikibot from "../assets/CompSciStuff/wikibot.png";
+import yoloImage from "../assets/CompSciStuff/yolo person detector.png"
+const content = {
+  fireos: {
+    titleBar: {
+      icon: "🔥",
+      title: "FireOS",
+      buttons: { minimize: true, close: true },
+    },
+    text: [
+      {
+        text: "A Simple Operating System",
+        color: "#fff",
+        fontSize: "12px",
+      },
+      {
+        text: "which can do Multiple Features such as ",
+        color: "#fff",
+        fontSize: "12px",
+      },
+      {
+        text: "Sticky Notes, Bingo, Tic Tac Toe, Stopwatch, Calendar, Calculator, Wallpaper Changer and a Power off Switch",
+        color: "#80A1F2",
+        fontSize: "14px",
+      },
+      {
+        text: "Won best computer science project AISSCE 2017 ( 12th grade ) ",
+        color: "#C5EBFE",
+        fontSize: "14px",
+      },
+    ],
+    link: `https://github.com/TheOmegaWolf/FireOs`,
+    width: 500,
+    height: 375,
+    padding: "40px 70px",
+    images: [fireos]
+  },
+};
 export default function ComputerScience() {
   const [showWindow, setShowWindow] = useState(false);
   const iconVariables = {
@@ -36,16 +81,17 @@ export default function ComputerScience() {
               >
                 <Window
                   id="react-window"
-                  height={200}
-                  width={400}
-                  titleBar={{
-                    icon: "🔥",
-                    title: "FireOS",
-                    buttons: { minimize: true, close: true },
-                  }}
+                  height={content.fireos.height}
+                  width={content.fireos.width}
+                  titleBar={content.fireos.titleBar}
                   setShowWindow={setShowWindow}
                 >
-                  <div style={{ backgroundColor: "#1a1a1a08" }}>hi</div>
+                  <FloatingWindowContent
+                    content={content.fireos.text}
+                    link={content.fireos.link}
+                    padding={content.fireos.padding}
+                    images={content.fireos.images}
+                  />
                 </Window>
               </motion.div>
             </AnimatePresence>
