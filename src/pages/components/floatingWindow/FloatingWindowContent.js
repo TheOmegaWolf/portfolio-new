@@ -20,7 +20,7 @@ export default function FloatingWindowContent(props) {
             className={`dflex flexcolumn alignHorizontal `}
             style={{ padding: props.padding }}
           >
-            {props.content.map((element, index) => (
+            {props.content && props.content.map((element, index) => (
               <div
                 key={`${element.text.split(" ")[0]}_${index}`}
                 className={`${styles.textContent}`}
@@ -36,7 +36,7 @@ export default function FloatingWindowContent(props) {
         </Carousel.Item>
         <Carousel.Item key={`${props.content[0].text.split(" ")[0]}_images`}>
           <div className={`dflex flexcolumn alignHorizontal `}>
-            {props.images.map((image) => (
+            { props.images && props.images.map((image) => (
               <>
                 <img src={image.src} width={500} height={340} key={image.src} />
               </>
