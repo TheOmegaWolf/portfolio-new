@@ -9,6 +9,27 @@
   width: 40px;
   font-size: 28px;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.6;
   margin: 0px 5px;
+}
+.logo {
+  cursor: pointer;
+  margin: 0 8px;
+}
+.skills {
+  height: 500px;
+  width: 500px;
+  background-color: rgba(27, 27, 27, 0.609);
+  position: absolute;
+  border-radius: 5px;
+}
+
+.CardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  padding: 20px
+}
+.Card{
+  cursor: pointer;
 }

@@ -8,14 +8,14 @@ const prStartFont = localFont({ src: "../../fonts/arcadeclassic.ttf" });
 const manaspcFont = localFont({ src: "../../fonts/manaspc.ttf" });
 const priceDownFont = localFont({ src: "../../fonts/pricedown bl.otf" });
 export default function FloatingWindowContent(props) {
-  console.log(props.images);
+  console.log(props.link);
   return (
     <>
       {/* <div className={`dflex ${styles.mainContainer} ${manaspcFont.className}`}> */}
       <Carousel
         className={`dflex ${styles.mainContainer} ${manaspcFont.className}`}
       >
-        <Carousel.Item >
+        <Carousel.Item>
           <div
             className={`dflex flexcolumn alignHorizontal `}
             style={{ padding: props.padding }}
@@ -31,20 +31,29 @@ export default function FloatingWindowContent(props) {
                   </div>
                 ))
               : null}
-            <a href={props.link} target="blank" className={`${styles.link}`}>
-              {props.link}
-            </a>
+            {props.link ? (
+              <a
+                href={props.link.text}
+                target="blank"
+                className={`${styles.link}`}
+                style={{ fontSize: props.link.fontsize }}
+              >
+                {props.link.text}
+              </a>
+            ) : (
+              <></>
+            )}
           </div>
         </Carousel.Item>
-        <Carousel.Item >
-          <div className={`dflex flexcolumn alignHorizontal `}>
+        <Carousel.Item>
+          <div className={`dflex flexcolumn alignBoth `}>
             {props.images
               ? props.images.map((image) => (
                   <>
                     <img
                       src={image.src}
-                      width={500}
-                      height={340}
+                      width={props.imageSize.width}
+                      height={props.imageSize.height}
                       key={image.src}
                     />
                   </>
