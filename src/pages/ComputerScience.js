@@ -157,7 +157,7 @@ export default function ComputerScience() {
           fontSize: "12px",
         },
         {
-          text: "and Simple Flask implementation in HTML, CSS and Js Website",
+          text: "and Simple Flask implementation in Html, Css and Js Website",
           color: "#C5EBFE",
           fontSize: "14px",
         }
