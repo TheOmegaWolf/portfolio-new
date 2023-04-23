@@ -9,7 +9,7 @@ const prStartFont = localFont({ src: "./fonts/arcadeclassic.ttf" });
 const ka1Font = localFont({ src: "./fonts/ka1.ttf" });
 const manaspcFont = localFont({ src: "./fonts/manaspc.ttf" });
 const priceDownFont = localFont({ src: "./fonts/pricedown bl.otf" });
-
+const pokemonFont = localFont({ src : "./fonts/Pokemon Classic.ttf"})
 import polaroidCam from "../assets/Camera.png";
 import paper from "../assets/paper.png";
 // babystep
@@ -100,12 +100,12 @@ export default function GameInfoBox(props) {
       setContent([
         {
           text: `  8th Grade Akshay had a spark. `,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
           text: `A Shark animation was to be done and I was lagging behind, my friends laughed at me then. `,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
@@ -115,17 +115,17 @@ export default function GameInfoBox(props) {
         },
         {
           text: `That’s when I realized I’ve to show them, I could make games.`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
           text: `Learnt Alice and Anim8or for my baby steps`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
           text: `and created a small ✈ simulation game`,
-          size: "25px",
+          size: "15px",
           color: "blue",
         },
       ]);
@@ -134,12 +134,12 @@ export default function GameInfoBox(props) {
       setContent([
         {
           text: `1st Year at College`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
           text: `AR session sponsored by Unity`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
@@ -149,22 +149,22 @@ export default function GameInfoBox(props) {
         },
         {
           text: `Augmented Reality shifted my focus from`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
           text: `Everyday programming`,
-          size: "25px",
+          size: "15px",
           color: "blue",
         },
         {
           text: `to`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
           text: `Creative Endeavors`,
-          size: "25px",
+          size: "15px",
           color: "red",
         },
       ]);
@@ -173,12 +173,12 @@ export default function GameInfoBox(props) {
       setContent([
         {
           text: `2nd Year: the summer internship`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
           text: `Takeleap gave me the opportunity to work on`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
@@ -188,12 +188,12 @@ export default function GameInfoBox(props) {
         },
         {
           text: `and update myself on`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
           text: `gamedev/AR/VR sectors`,
-          size: "30px",
+          size: "20px",
           color: "blue",
         },
       ]);
@@ -202,17 +202,17 @@ export default function GameInfoBox(props) {
       setContent([
         {
           text: `3rd Year : The First Game`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
           text: `This game dev elective I picked`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
           text: `gave me scope and time`,
-          size: "25px",
+          size: "15px",
           color: "darkblue",
         },
         {
@@ -226,7 +226,7 @@ export default function GameInfoBox(props) {
       setContent([
         {
           text: `Letting go of gamedev was never easy,`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
@@ -235,8 +235,8 @@ export default function GameInfoBox(props) {
           color: "red",
         },
         {
-          text: `Along with @adarsh from Vifr Tech (one cooool company)`,
-          size: "25px",
+          text: `Along with Adarsh from Vifr Tech (one cooool company)`,
+          size: "15px",
           color: "darkblue",
         },
         {
@@ -246,12 +246,12 @@ export default function GameInfoBox(props) {
         },
         {
           text: `A VR Comic Mini Golf game for JioGlass and Android`,
-          size: "30px",
+          size: "18px",
           color: "blue",
         },
         {
           text: `( Soon gonna blow your minds with it 🤯 )`,
-          size: "20px",
+          size: "18px",
           color: "green",
         },
       ]);
@@ -260,7 +260,7 @@ export default function GameInfoBox(props) {
       setContent([
         {
           text: `Vifr also gave me an Opportunity to work on their product`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
@@ -270,17 +270,17 @@ export default function GameInfoBox(props) {
         },
         {
           text: `that serves a greater good.`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
           text: `Autistic children gain an opportunity to`,
-          size: "25px",
+          size: "15px",
           color: "black",
         },
         {
           text: `learn and expand their horizons`,
-          size: "25px",
+          size: "15px",
           color: "blue",
         },
         {
@@ -326,7 +326,7 @@ export default function GameInfoBox(props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className={`${styles.infoContainer} ${prStartFont.className} dflex alignVertical`}
+          className={`${styles.infoContainer} ${pokemonFont.className} dflex alignVertical`}
         >
           {chosenState === "images" ? (
             <motion.img
@@ -394,7 +394,7 @@ export default function GameInfoBox(props) {
 
                     <motion.div
                       style={{
-                        fontSize: "20px",
+                        fontSize: "15px",
                         color: "black",
                         marginTop: "5px",
                       }}
@@ -429,6 +429,7 @@ export default function GameInfoBox(props) {
                         transition={{
                           delay: content.length * 2,
                         }}
+                        className={`${manaspcFont.className}`}
                       >
                         @the._.omegawolf
                       </motion.a>

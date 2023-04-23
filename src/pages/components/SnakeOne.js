@@ -25,7 +25,7 @@ export default function SnakeOne(props) {
         className={`${styles.snakeHead1}`}
         initial={{
           x: windowDimensions.width - 150,
-          y: windowDimensions.height,
+          y: windowDimensions.height - 200,
         }}
       >
         <motion.img
@@ -37,7 +37,7 @@ export default function SnakeOne(props) {
           }}
         ></motion.img>
       </motion.div>
-      <SnakeBodyTile offset={{ x: -150, y: 80 }}>
+      <SnakeBodyTile offset={{ x: -150, y: -120 }}>
         <motion.span
           whileHover={{ scale: 1.5 }}
           className="dflex alignBoth"
@@ -47,37 +47,28 @@ export default function SnakeOne(props) {
           👶
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 200 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 0 }}>
         <motion.span
           whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
           initial={{ rotate: 0 }}
           className="dflex alignBoth"
           style={{ height: "100%" }}
         >
-          🐱‍👤
+          👇🏻
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 320 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 120 }}>
         <motion.span
           whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
           initial={{ rotate: 0 }}
           className="dflex alignBoth"
           style={{ height: "100%" }}
         >
-          ✨
+          👇🏻
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 440 }}>
-        <motion.span
-          whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
-          initial={{ rotate: 0 }}
-          className="dflex alignBoth"
-          style={{ height: "100%" }}
-        >
-          🐱‍🐉
-        </motion.span>
-      </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 560 }}>
+      
+      <SnakeBodyTile offset={{ x: -150, y: 240 }}>
         <motion.span
           whileHover={{ scale: 1.5 }}
           className="dflex alignBoth"
@@ -87,17 +78,27 @@ export default function SnakeOne(props) {
           🎒
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 680 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 360 }}>
         <motion.span
           whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
           initial={{ rotate: 0 }}
           className="dflex alignBoth"
           style={{ height: "100%" }}
         >
-          🥶
+          👇🏻
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 800 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 480 }}>
+        <motion.span
+          whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
+          initial={{ rotate: 0 }}
+          className="dflex alignBoth"
+          style={{ height: "100%" }}
+        >
+          👇🏻
+        </motion.span>
+      </SnakeBodyTile>
+      <SnakeBodyTile offset={{ x: -150, y: 600 }}>
         <motion.span
           whileHover={{ scale: 1.5 }}
           className="dflex alignBoth"
@@ -108,27 +109,27 @@ export default function SnakeOne(props) {
         </motion.span>
       </SnakeBodyTile>
 
-      <SnakeBodyTile offset={{ x: -150, y: 920 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 720 }}>
         <motion.span
           whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
           initial={{ rotate: 0 }}
           className="dflex alignBoth"
           style={{ height: "100%" }}
         >
-          👺
+          👇🏻
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 1040 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 840 }}>
         <motion.span
           whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
           initial={{ rotate: 0 }}
           className="dflex alignBoth"
           style={{ height: "100%" }}
         >
-          🐱‍🚀
+          👇🏻
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 1160 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 960 }}>
         <motion.span
           whileHover={{ scale: 1.5 }}
           className="dflex alignBoth"
@@ -138,27 +139,27 @@ export default function SnakeOne(props) {
           👨‍💻
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 1280 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 1080 }}>
         <motion.span
           whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
           initial={{ rotate: 0 }}
           className="dflex alignBoth"
           style={{ height: "100%" }}
         >
-          🏏
+          👇🏻
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 1400 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 1200 }}>
         <motion.span
           whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
           initial={{ rotate: 0 }}
           className="dflex alignBoth"
           style={{ height: "100%" }}
         >
-          ⚽
+          👇🏻
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 1520 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 1320 }}>
         <motion.span
           whileHover={{ scale: 1.5 }}
           className="dflex alignBoth"
@@ -168,27 +169,27 @@ export default function SnakeOne(props) {
           👓
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 1640 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 1440 }}>
         <motion.span
           whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
           initial={{ rotate: 0 }}
           className="dflex alignBoth"
           style={{ height: "100%" }}
         >
-          🔮
+          👇🏻
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 1760 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 1560 }}>
         <motion.span
           whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
           initial={{ rotate: 0 }}
           className="dflex alignBoth"
           style={{ height: "100%" }}
         >
-          🍕
+          👇🏻
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 1880 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 1680 }}>
         <motion.span
           whileHover={{ scale: 1.5 }}
           className="dflex alignBoth"
@@ -198,37 +199,37 @@ export default function SnakeOne(props) {
           📕
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 2000 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 1800 }}>
         <motion.span
           whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
           initial={{ rotate: 0 }}
           className="dflex alignBoth"
           style={{ height: "100%" }}
         >
-          🔮
+          👇🏻
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 2120 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 1920 }}>
         <motion.span
           whileHover={{ scale: 1.5, rotate: [0, 45, -45, 0] }}
           initial={{ rotate: 0 }}
           className="dflex alignBoth"
           style={{ height: "100%" }}
         >
-          🍕
+          👇🏻
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 2240 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 2040 }}>
         <motion.span
           whileHover={{ scale: 1.5 }}
           className="dflex alignBoth"
           style={{ height: "100%" }}
           onClick={() => props.setType("reset")}
         >
-          🔁
+          🪃
         </motion.span>
       </SnakeBodyTile>
-      <SnakeBodyTile offset={{ x: -150, y: 2360 }}>
+      <SnakeBodyTile offset={{ x: -150, y: 2160 }}>
         <motion.span
           whileHover={{ scale: 1.5 }}
           className="dflex alignBoth"

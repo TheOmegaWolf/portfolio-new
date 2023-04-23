@@ -11,7 +11,12 @@ export default function MenuButton(props) {
         exit={{ opacity: 0 }}
         className={`dflex alignBoth ${style.btn}`}
       >
-        <img src={arrow.src} className={style.arrow}></img>
+        <img
+          src={arrow.src}
+          className={style.arrow}
+          height={20} 
+          width={20}
+        ></img>
         <button
           className={`${style.button} ${style.link}`}
           onClick={() => {

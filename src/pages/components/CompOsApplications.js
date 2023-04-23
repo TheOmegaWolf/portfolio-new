@@ -70,7 +70,6 @@ export default function CompOsApplications(props) {
     { height: "80px", width: "140px" },
   ];
   if (windowWidth && windowHeight) {
-    console.log(sizes)
     return (
       <AnimatePresence mode="wait">
         <motion.div

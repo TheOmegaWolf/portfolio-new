@@ -9,6 +9,7 @@ const priceDownFont = localFont({ src: "./fonts/pricedown bl.otf" });
 import Window from "../pages/components/floatingWindow/Window";
 import CompOsApplications from "./components/CompOsApplications";
 import FloatingWindowContent from "./components/floatingWindow/FloatingWindowContent";
+import Image from "next/image";
 
 // images
 import fireos from "../assets/CompSciStuff/fireos.png";
@@ -20,7 +21,8 @@ import videoPlayer from "../assets/CompSciStuff/VideoPlayer.png";
 import wikibot from "../assets/CompSciStuff/wikibot.png";
 import yoloImage from "../assets/CompSciStuff/yolo person detector.png";
 import workshake from "../assets/CompSciStuff/Workshake.png";
-
+import backBtn from "../assets/CompSciStuff/back.png";
+import { useRouter } from "next/router";
 
 export default function ComputerScience() {
   
@@ -326,6 +328,8 @@ export default function ComputerScience() {
   const [showImageDetectionWindow, setImageDetectionWindow] = useState(false);
   const [showWikibotWindow, setWikibotWindow] = useState(false);
   const [showWorkshakeWindow, setWorkshakeWindow] = useState(false);
+
+  const router = useRouter();
   const iconVariables = {
     fireos: {
       show: showFireOsWindow,
@@ -381,6 +385,9 @@ export default function ComputerScience() {
           exit={{ opacity: 0 }}
           className={`${styles.compsciContainer} flexgrow overHdn`}
         >
+          <span className={`${styles.backBtn}`}>
+            <Image src={backBtn.src} width={33} height={30} onClick={()=>router.push('/')}></Image>
+          </span>
           {Object.keys(iconVariables).map((variable) => {
             return iconVariables[variable].show ? (
               <AnimatePresence>

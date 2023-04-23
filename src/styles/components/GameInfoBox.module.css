@@ -16,9 +16,9 @@
   height: 500px;
   border-radius: 5px;
   background-color: #ffffff;
-  box-shadow: 0 0 60px 30px #ffffff7b,
-    /* inner white */ 0 0 100px 60px rgba(255, 0, 255, 0.435),
-    /* middle magenta */ 0 0 140px 90px rgba(0, 255, 255, 0.407);
+  /* box-shadow:  0 0 60px 30px #ffffff7b, 0 0 100px 60px rgba(0, 255, 88, 0.15), 0 0 140px 90px rgba(0, 255, 124, 0.41) */
+  box-shadow: 0 0 60px 30px #ffffff7b,  0 0 100px 60px rgba(0, 255, 251, 0.435), 0 0 140px 90px rgba(0, 255, 132, 0.407);
+  /* inner white */ /* middle magenta */ 
 }
 .navigateIcon {
   height: 40px;
