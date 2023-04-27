@@ -8,10 +8,15 @@ import { useTypewriter } from "react-simple-typewriter";
 import { AnimatePresence, motion } from "framer-motion";
 import MenuButton from "./components/MenuButton";
 import localFont from "@next/font/local";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import "bootstrap/dist/css/bootstrap.css";
+import ContactUs from "./components/Email";
 const yosterFont = localFont({ src: "./fonts/yoster.ttf" });
 const prStartFont = localFont({ src: "./fonts/arcadeclassic.ttf" });
 const manaspcFont = localFont({ src: "./fonts/manaspc.ttf" });
 const priceDownFont = localFont({ src: "./fonts/pricedown bl.otf" });
+const pokemonFont = localFont({src: "./fonts/Pokemon Classic.ttf"})
 export default function Base(props) {
   const [typeIntro, setSetTypeIntro] = useState(true);
   const [text, helper] = useTypewriter({
@@ -45,8 +50,24 @@ export default function Base(props) {
               //   onLoopDone={() => console.log("done!")}
               // />
               <div className={`${styles.titleCard}`}>{text}</div>
+            ) : props.page === "contactme" ? (
+              <motion.div className="cover">
+                <div
+                  className={`modal show ${pokemonFont.className}`} 
+                  style={{ display: "block", position: "initial" }}
+                >
+                  <Modal.Dialog  style={{color: "black"}}>
+                    <Modal.Header closeButton>
+                      Hit me up!
+                    </Modal.Header>
+                    <Modal.Body >
+                      <ContactUs/>
+                    </Modal.Body>
+                  </Modal.Dialog>
+                </div>
+              </motion.div>
             ) : (
-              <div>
+              <div class="dflex alignBoth flexcolumn">
                 <motion.div
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
@@ -85,22 +106,6 @@ export default function Base(props) {
                 </motion.div>
               </div>
             )}
-            {/* <AwesomeButton cssModule={AwesomeButtonStyles}>
-            Game on?
-          </AwesomeButton>
-          <AwesomeButton
-            cssModule={AwesomeButtonStyles}
-            type="secondary"
-            className={`${styles["aws-btn"]}`}
-          >
-            Code on?
-          </AwesomeButton>
-          <AwesomeButton cssModule={AwesomeButtonStyles} type="primary">
-            Who aaare you?
-          </AwesomeButton>
-          <AwesomeButton cssModule={AwesomeButtonStyles} type="secondary">
-            Let's connect
-          </AwesomeButton> */}
           </div>
         </motion.div>
       </AnimatePresence>

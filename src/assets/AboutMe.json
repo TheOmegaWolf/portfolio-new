@@ -1,0 +1,43 @@
+{
+  "nodes": [
+    {
+      "id": "id1",
+      "name": "About Me!",
+      "color": "#ff0000"
+    },
+    {
+      "id": "id2",
+      "name": "Anime"
+    },
+    {
+      "id": "id3",
+      "name": "Music"
+    },
+    {
+      "id": "id4",
+      "name": "Travel"
+    },
+    {
+      "id": "id5",
+      "name": "Food"
+    },
+    {
+      "id": "id6",
+      "name": "Extras"
+    },
+    {
+      "id": "id7",
+      "name": "Extras"
+    },
+    {
+      "id": "id7",
+      "name": "Extras"
+    }
+  ],
+  "links": [
+    {
+      "source": "id1",
+      "target": "id2"
+    }
+  ]
+}

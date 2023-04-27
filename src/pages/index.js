@@ -1,8 +1,6 @@
 import Head from "next/head";
 // import GameDevHero from "./GameDevHero";
 import ComputerScience from "./ComputerScience";
-import Interests from "./Interests";
-import ContactMe from "./ContactMe";
 import { useEffect, useState } from "react";
 import Base from "./Base";
 import { AnimatePresence, motion } from "framer-motion";
@@ -18,6 +16,9 @@ export default function Home() {
     if (page === "programming") {
       router.push("/ComputerScience");
     }
+    if (page === "aboutme") {
+      router.push("/AboutMe");
+    }
   }, [page]);
 
   return (
@@ -31,7 +32,7 @@ export default function Home() {
       <div className="dflex alignVertical cover">
         <AnimatePresence>
           <motion.div key="base" className={"cover"}>
-            <Base setPage={setPage} />
+            <Base setPage={setPage} page={page} />
           </motion.div>
         </AnimatePresence>
       </div>

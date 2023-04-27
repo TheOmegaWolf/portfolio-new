@@ -73,7 +73,7 @@ export default function ComputerScience() {
       },
       text: [
         {
-          text: "Python/Android/Html  Based project",
+          text: "Python/Android/Html Based project",
           color: "#80A1F2",
           fontSize: "14px",
         },
