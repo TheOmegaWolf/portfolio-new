@@ -9,7 +9,7 @@ const prStartFont = localFont({ src: "./fonts/arcadeclassic.ttf" });
 const ka1Font = localFont({ src: "./fonts/ka1.ttf" });
 const manaspcFont = localFont({ src: "./fonts/manaspc.ttf" });
 const priceDownFont = localFont({ src: "./fonts/pricedown bl.otf" });
-const pokemonFont = localFont({ src : "./fonts/Pokemon Classic.ttf"})
+const pokemonFont = localFont({ src: "./fonts/Pokemon Classic.ttf" });
 import polaroidCam from "../assets/Camera.png";
 import paper from "../assets/paper.png";
 // babystep
@@ -329,13 +329,16 @@ export default function GameInfoBox(props) {
           className={`${styles.infoContainer} ${pokemonFont.className} dflex alignVertical`}
         >
           {chosenState === "images" ? (
-            <motion.img
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className={`${styles.navigateIcon}`}
-              src={paper.src}
-              onClick={() => setChosenState("text")}
-            ></motion.img>
+            <div className="dflex flexcolumn alignBoth">
+              <motion.img
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className={`${styles.navigateIcon}`}
+                src={paper.src}
+                onClick={() => setChosenState("text")}
+              ></motion.img>
+              <div className={`${styles.navigateText}`}>click me</div>
+            </div>
           ) : null}
           {chosenState === "text" ? (
             <motion.div
@@ -500,13 +503,16 @@ export default function GameInfoBox(props) {
           ) : null}
           {(imagesCache[props.type] || videosCache[props.type]) &&
           chosenState === "text" ? (
-            <motion.img
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className={`${styles.navigateIcon}`}
-              src={polaroidCam.src}
-              onClick={() => setChosenState("images")}
-            ></motion.img>
+            <div className="dflex flexcolumn alignBoth">
+              <motion.img
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className={`${styles.navigateIcon}`}
+                src={polaroidCam.src}
+                onClick={() => setChosenState("images")}
+              ></motion.img>
+              <div className={`${styles.navigateText}`}>click me</div>
+            </div>
           ) : null}
         </motion.div>
       </AnimatePresence>

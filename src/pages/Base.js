@@ -56,7 +56,7 @@ export default function Base(props) {
                   className={`modal show ${pokemonFont.className}`}
                   style={{ display: "block", position: "initial" }}
                 >
-                  <Modal.Dialog style={{ color: "black" }}>
+                  <Modal.Dialog style={{ color: "black", width: 400 }}>
                     <Modal.Header className="dflex alignBoth">
                       <div className="cover dflex alignBoth">Hit me up!</div>
                       <span

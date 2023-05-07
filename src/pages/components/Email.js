@@ -4,7 +4,8 @@ import { useRouter } from "next/router";
 import localFont from "@next/font/local";
 import styles from "../../styles/Contacts.module.css";
 const manaspcFont = localFont({ src: "../fonts/manaspc.ttf" });
-
+const PixAntiqua = localFont({ src: "../fonts/PixAntiqua.ttf" });
+const Gibberesque = localFont({ src: "../fonts/Gibberesque.ttf" });
 const ContactUs = () => {
   const form = useRef();
   const router = useRouter();
@@ -60,22 +61,34 @@ const ContactUs = () => {
         <input
           type="text"
           name="from_name"
-          className={`${manaspcFont.className} ${styles.mt10}`}
+          style={{ width: 200 }}
+          className={`${Gibberesque.className} ${styles.mt10}`}
         />
         <label>Email</label>
         <input
           type="email"
           name="user_email"
-          className={`${manaspcFont.className} ${styles.mt10}`}
+          style={{ width: 250 }}
+          className={`${PixAntiqua.className} ${styles.mt10}`}
         />
         <label>Message</label>
         <textarea
           name="message"
-          className={`${manaspcFont.className} ${styles.mt10}`}
+          className={` ${styles.mt10} ${styles.textareaBox}`}
           rows={10}
           columns={20}
         />
-        <input type="submit" value="Send" className={`${styles.mt10}`} />
+        <input
+          type="submit"
+          value="Send"
+          style={{
+            backgroundColor: "#69CDFF",
+            color: "black",
+            padding: 5,
+            borderRadius: 5,
+          }}
+          className={`${styles.mt10}`}
+        />
       </form>
     );
   }

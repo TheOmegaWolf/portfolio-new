@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 export default function SnakeBodyTile(props) {
   const [windowWidth, windowHeight] = useWindowSize();
   if (windowWidth && windowHeight) {
+    console.log(props);
     return (
       <>
         <motion.div
@@ -13,7 +14,13 @@ export default function SnakeBodyTile(props) {
             x: windowWidth + props.offset.x,
             y: windowHeight + props.offset.y,
           }}
+          // style={{ position: "relative" }}
         >
+          {props.type === "action" ? (
+            <span className={style.blackDot}></span>
+          ) : (
+            <></>
+          )}
           {props.children}
         </motion.div>
       </>
