@@ -1,8 +1,17 @@
-.backBtn{
+.backBtn {
   position: absolute;
   right: 20px;
   top: 20px;
   width: 40px;
   height: 40px;
   cursor: pointer;
+  z-index: 200;
+  filter: brightness(0) invert(1);
+}
+.title {
+  position: absolute;
+  top: 20px;
+  font-size: 10px;
+  z-index: 200;
+  color: white;
 }

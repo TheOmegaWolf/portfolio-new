@@ -16,7 +16,7 @@ const yosterFont = localFont({ src: "./fonts/yoster.ttf" });
 const prStartFont = localFont({ src: "./fonts/arcadeclassic.ttf" });
 const manaspcFont = localFont({ src: "./fonts/manaspc.ttf" });
 const priceDownFont = localFont({ src: "./fonts/pricedown bl.otf" });
-const pokemonFont = localFont({src: "./fonts/Pokemon Classic.ttf"})
+const pokemonFont = localFont({ src: "./fonts/Pokemon Classic.ttf" });
 export default function Base(props) {
   const [typeIntro, setSetTypeIntro] = useState(true);
   const [text, helper] = useTypewriter({
@@ -53,15 +53,22 @@ export default function Base(props) {
             ) : props.page === "contactme" ? (
               <motion.div className="cover">
                 <div
-                  className={`modal show ${pokemonFont.className}`} 
+                  className={`modal show ${pokemonFont.className}`}
                   style={{ display: "block", position: "initial" }}
                 >
-                  <Modal.Dialog  style={{color: "black"}}>
-                    <Modal.Header closeButton>
-                      Hit me up!
+                  <Modal.Dialog style={{ color: "black" }}>
+                    <Modal.Header className="dflex alignBoth">
+                      <div className="cover dflex alignBoth">Hit me up!</div>
+                      <span
+                        className={manaspcFont.className}
+                        style={{ cursor: "pointer" }}
+                        onClick={() => props.setPage("")}
+                      >
+                        x
+                      </span>
                     </Modal.Header>
-                    <Modal.Body >
-                      <ContactUs/>
+                    <Modal.Body>
+                      <ContactUs />
                     </Modal.Body>
                   </Modal.Dialog>
                 </div>

@@ -1,14 +1,18 @@
 import React, { useState, useMemo, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 import THREE from "three";
-import backBtn from "../assets/CompSciStuff/back.png"
-import styles from "../styles/AboutMe.module.css"
+import backBtn from "../assets/CompSciStuff/back.png";
+import styles from "../styles/AboutMe.module.css";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import localFont from "@next/font/local";
+const pokemonFont = localFont({ src: "./fonts/Pokemon Classic.ttf" });
 const ForceGraph3D = dynamic(() => import("react-force-graph-3d"), {
   ssr: false,
 });
 
 const MyGraph = () => {
+  const router = useRouter();
   const rootId = 1;
   const [graphData, setGraphData] = useState({
     nodes: [
@@ -153,23 +157,28 @@ const MyGraph = () => {
 
   return (
     <>
-      <span className={`${styles.backBtn}`}>
-        <Image
-          src={backBtn.src}
-          width={33}
-          height={30}
-          onClick={() => router.push("/")}
-        ></Image>
-      </span>
-      <ForceGraph3D
-        graphData={prunedTree}
-        linkDirectionalParticles={2}
-        zoom={4}
-        width={"100%"}
-        height={"100%"}
-        // nodeColor={node => !node.childLinks.length ? 'green' : node.collapsed ? 'red' : 'yellow'}
-        onNodeClick={handleNodeClick}
-      />
+      <div className="cover dflex alignHorizontal">
+        <span className={`${styles.backBtn}`}>
+          <Image
+            src={backBtn.src}
+            width={33}
+            height={30}
+            onClick={() => router.push("/")}
+          ></Image>
+        </span>
+        <span className={`${pokemonFont.className} ${styles.title}`}>
+          Press, click and play with the bubbles to explore!
+        </span>
+        <ForceGraph3D
+          graphData={prunedTree}
+          linkDirectionalParticles={2}
+          zoom={4}
+          width={"100%"}
+          height={"100%"}
+          // nodeColor={node => !node.childLinks.length ? 'green' : node.collapsed ? 'red' : 'yellow'}
+          onNodeClick={handleNodeClick}
+        />
+      </div>
     </>
   );
 };
